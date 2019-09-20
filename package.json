@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build": "next build",
-    "prod": "pm2 start pm2.config.js --env production"
+    "prod": "pm2 start pm2.config.js --env production",
+    "mongo": "mongod --dbpath E:\\fish_mongodb\\data\\db",
+    "mongoc": "mongod --dbpath F:\\MongoDB\\data\\db",
+    "mongoprod": "cd \/usr\/local\/mongodb\/ mongod --dbpath \/usr\/local\/mongodb\/data\/db"
   },
   "keywords": [
     "nextjs",
@@ -33,7 +36,11 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-particles-js": "^2.6.0",
-    "react-toastify": "^5.3.1"
+    "react-toastify": "^5.3.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "mongodb": "^3.2.7",
+    "qiniu": "^7.2.2"
   },
   "devDependencies": {
     "@types/clipboard": "^2.0.1",

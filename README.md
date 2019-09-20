@@ -47,25 +47,12 @@
  3. npm run service
 ```
 
-> The application is ready on http://localhost:9090
-
-
-## MongoDB - 表结构
-
-```
- 1. ArticleList // 文章列表
- 2. ArticleCategory //文章分类
- 3. counters //辅助实现自增id
- 4. UserList //用户注册信息
- 3. Statistics //网站统计信息
-```
-
 ## Running Production
 
-> * `npm run winprod`执行pm2.config.js文件，如果未安装pm2则需要全局安装：
+> * `npm run prod`执行pm2.config.js文件，如果未安装pm2则需要全局安装：
 > * `npm i -g pm2`
 
 ```
  1. npm run build
- 2. npm run winprod
+ 2. npm run prod
 ```

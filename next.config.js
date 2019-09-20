@@ -34,7 +34,6 @@ if (typeof require !== 'undefined') {
   require.extensions['.less'] = (file) => { }
 }
 
-
 module.exports = withTypescript(
   withLess(
     withCSS({
@@ -108,17 +107,17 @@ module.exports = withTypescript(
       },
       serverRuntimeConfig: { // Will only be available on the server side
         rootDir: path.join(__dirname, './'),
-        PORT: isDev ? 8080 : (process.env.PORT || 80)
+        PORT: isDev ? 80 : (process.env.PORT || 80)
       },
       publicRuntimeConfig: { // Will be available on both server and client
         staticFolder: '/static',
         isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
       },
       env: {
-        SERVER_HOST: '127.0.0.1:9090'
+        // SERVER_HOST: '127.0.0.1:9090'
       },
       prot: {
-        SERVER_HOST: '127.0.0.1:9090'
+        // SERVER_HOST: '127.0.0.1:9090'
       }
     })
   )

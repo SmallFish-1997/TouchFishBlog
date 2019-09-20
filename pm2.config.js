@@ -17,8 +17,8 @@ module.exports = {
         node_args: '--harmony',
         env_production: {
           NODE_ENV: 'production',
-          HOST_URL:`http://106.53.88.252:9090`,
-          PORT: 8090
+          HOST_URL:`http://www.touchfish.cn`,
+          PORT:8080
         },
         out_file: './logs/out.log', // 普通日志路径
         error_file: './logs/err.log', // 错误日志路径
