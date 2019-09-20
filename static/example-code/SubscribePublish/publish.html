@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布订阅模式-Example</title>
+    <style type="text/css">
+        .body-container {
+            display: grid;
+            grid-template-columns: repeat(2, 300px);
+            grid-row-gap: 20px;
+            grid-column-gap: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .public-container {
+            background: orange;
+            text-align: center;
+        }
+
+        .user-container {
+            background: green;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            min-height: 300px;
+        }
+
+        .add-container {
+            text-align: center;
+            background: pink;
+        }
+
+        .public-container,
+        .add-container,
+        .user-container {
+            padding: 20px;
+
+        }
+
+        .user-list li {
+            position: relative;
+            padding-right: 100px;
+            margin-bottom:10px;
+        }
+
+        .user-list p {
+            color: #eee;
+        }
+
+        .user-list button {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="body-container">
+        <!-- 公众号 -->
+        <section class="public-container">
+            <h3>TouchFish 公众号</h3>
+            <textarea id="PublishContent" cols="30" rows="10" placeholder="输入发布给订阅者的内容">
+            </textarea>
+            <button class="publish-article">给所有订阅者发布</button>
+            <p>
+                <input type="text" class="publish-name" placeholder="输入订阅者名称">
+            </p>
+            <button class="publish-user">给指定订阅者发布</button>
+
+        </section>
+        <section class="add-container">
+            <h3>订阅公众号</h3>
+            <p>
+                <input type="text" placeholder="输入订阅者名称" class="username">
+            </p>
+            <button class="add-subscribe">添加订阅</button>
+        </section>
+        <!-- 用户列表 -->
+        <section class="user-container">
+            <h3>已订阅用户列表</h3>
+            <ul class="user-list">
+
+            </ul>
+        </section>
+
+    </section>
+    <script src="./subscribe/publish.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const subEvent = new SubscribePublish();
+            let username = document.querySelector('.username'); //订阅者名称
+            let addSubscribe = document.querySelector('.add-subscribe'); //添加订阅button
+            let publishArticle = document.querySelector('.publish-article'); //发布订阅button
+            let PublishContent = document.getElementById('PublishContent'); //要发布的内容
+            let userList = document.querySelector('.user-list'); // 订阅者列表
+            let publishUser = document.querySelector('.publish-user'); // 发布给指定订阅者
+            let publishName = document.querySelector('.publish-name'); // 指定订阅者名称
+            PublishContent.value = '';
+            // 添加订阅-点击事件
+            addSubscribe.addEventListener('click', function () {
+                let name = username.value;
+                let li = document.createElement('li');
+                li.textContent = name + '：';
+                li.setAttribute('class', name);
+                addCancelButton(li, name);
+                userList.appendChild(li);
+
+                // 添加订阅者
+                subEvent.subscribe(name, function (content) {
+                    let li_dom = document.querySelector(`.${name}`);
+                    if (li_dom.tagName === 'LI') {
+                        let p_dom = document.createElement('p');
+                        p_dom.textContent += content;
+                        li_dom.appendChild(p_dom);
+                    }
+                })
+            })
+            // 发布订阅事件
+            publishArticle.addEventListener('click', function () {
+                let content = PublishContent.value.trim();
+                // 触发发布订阅-发送给所有订阅者
+                subEvent.publish('all', content);
+            })
+            // 发布给指定订阅者-点击事件
+            publishUser.addEventListener('click', function () {
+                let name = publishName.value.trim();
+                let content = PublishContent.value.trim();
+                subEvent.publish(name, content);
+            })
+
+            /**
+             * @name 添加取消订阅按钮
+             * @param li 当前li Dom节点
+             * @param name 订阅者名称
+             * */
+            function addCancelButton(li, name) {
+                let button = document.createElement('button');
+                button.textContent = '取消订阅';
+                button.setAttribute('class', name);
+                // 点击取消订阅事件
+                button.addEventListener('click', function () {
+                    let li_dom = document.querySelector(`.${name}`);
+                    userList.removeChild(li_dom);
+                    subEvent.cancelSubscribe(name);
+                })
+                li.appendChild(button);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

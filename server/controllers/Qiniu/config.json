@@ -1,0 +1,9 @@
+{
+    "AccessKey": "WmYGeNzkzZiZN4Unb8Rktr6K1c6L1zuhGOBkvdh7",
+    "SecretKey": "Km4nkAniaOFD5mnFW5_WsDbJCUu7uJgdl6k6cWZO",
+    "Bucket": "touchfish",
+    "Port": 9000,
+    "UptokenUrl": "uptoken",
+    "Domain": "www.touchfish.cn.qiniudns.com"
+}
+

@@ -1,0 +1,88 @@
+@import './preview.less';
+.detail-container{
+    font-size: 14px;
+    .top-box{
+        text-align: center;
+        border-bottom: 1px solid @split;
+        padding-bottom: 10px;
+        >h3{
+            font-size: 24px;
+            line-height: 35px;
+            font-weight: 550;
+            color: @active;
+            padding: 15px 0;
+        }
+        .type-col{
+            margin-bottom: 10px;
+            color: #999;
+
+            i{
+                font-size: 16px;
+                margin-right: 5px;
+            }
+        }
+    }
+    .cover-row{
+        text-align: center;
+        padding: 20px 0;
+        width: 100%;
+        img{
+            width: 65%;
+        }
+    }
+    .article-content{
+        padding:20px 40px;
+        line-height: 26px;
+    }
+    .prve-next-box{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        >li{
+            padding: 10px;
+            width: 280px;
+            background: @split;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border:1px solid @page_bg;
+            transition: .5s all;
+            cursor: pointer;
+            p{
+                margin:0;
+                text-align: center;
+                word-break: break-all;
+                i{
+                    color: @text;
+                }
+                &:last-of-type{
+                    margin-top:7px;
+                    font-size: 12px;
+                    color: #999;
+                    line-height: 23px;
+                }
+            }
+            &:first-of-type{
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            &:last-of-type{
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+           
+            &:hover{
+                background: @blue;
+                p{
+                    color: @text;
+                    &:first-of-type{
+                        color: @active;
+                    }
+                    i{
+                        color: @active;
+                    }
+                }
+            }
+        }
+    }
+}

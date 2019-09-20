@@ -1,0 +1,155 @@
+@import "~antd/dist/antd.less";
+@import './theme.less';
+@import './antd-custom.less';
+html,body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+  position: relative;
+  
+}
+
+.Toastify__toast.Toastify__toast--default{
+  text-align: center;
+  border-radius: .1em;
+  background: @primary;
+  font-size: 14px;
+  color: #fff;
+  .Toastify__close-button--default{
+    color: #fff;
+  }
+
+}
+// 最外层容器
+.body-container{
+  background: @page_bg;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow:auto;
+  z-index: 0;
+  &::-webkit-scrollbar {
+    width: .6rem;
+    height: .6rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 15px;
+    outline: none;
+  }
+}
+
+// 版心
+.component-container{
+  position: relative;
+  width: 90%;
+  max-width: 1300px;
+  min-width: 900px;
+  margin: 0 auto;
+  color: @text;
+  min-height: 800px;
+  // flex-grow: 2;
+  margin-bottom: 50px;
+}
+// 公用组件内容 - 容器
+.public-container{
+  min-height: 800px;
+  width: 100%;
+  height: 100%;
+  // position: absolute;
+  // z-index: 1;
+  background: @primary;
+  overflow-y:auto;
+  box-shadow: 0 1px 2px rgba(0,0,0,.4), inset 0 0 30px rgba(10,10,0,.1);
+  &::-webkit-scrollbar {
+    width: 2px;
+    background: #191919;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 2px;
+    height: 40px;
+    background-color: #a2abb8;
+  }
+}
+.webkit-scroll{
+  &::-webkit-scrollbar {
+    width: 2px;
+    background: #191919;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 2px;
+    height: 40px;
+    background-color: #a2abb8;
+  }
+}
+.primary-button{
+  color: #fff;
+  background: #1890ff;
+  border:none;
+  padding: 10px 20px;
+  border-radius: .5em;
+  cursor: pointer;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+  transition: all .3s;
+  &:hover{
+    color: #fff;
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+  }
+}
+// 雪花Canvas容器
+.particles-container{
+  position: fixed;
+  left: -.6rem;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+
+// -----清除默认样式---------
+// html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+// header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+// table{border-collapse:collapse;border-spacing:0;}
+// caption,th{text-align:left;font-weight:normal;}
+// html,body,fieldset,img,iframe,abbr{border:0;}
+// i,cite,em,var,address,dfn{font-style:normal;}
+// [hidefocus],summary{outline:0;}
+// li{list-style:none;}
+// h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+// sup,sub{font-size:83%;}
+// pre,code,kbd,samp{font-family:inherit;}
+// q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+// label,summary{cursor:default;}
+a,button{cursor:pointer;}
+// h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+// del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,\5b8b\4f53;color:#eee;outline:0;}
+// body{background:#fff;}
+// a,a:hover{color:#333;}
+input{
+  background: transparent;
+  border:none;
+  &:focus{
+      border:none;
+  }
+}

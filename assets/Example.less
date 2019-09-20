@@ -1,0 +1,80 @@
+@import './theme.less';
+
+.example-container{
+    padding: 20px;
+    >h3{
+        text-align: center;
+        color: @text;
+        padding-bottom: 10px;
+        font-weight: 550;
+        font-size: 25px;
+        letter-spacing: 1px;
+    }
+    >p{
+        border-bottom: 1px solid @split;
+        text-align: center;
+        padding-bottom:20px;
+        color: #999;
+    }
+    .example-item{
+        margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        padding:20px 10px;
+        border:1px solid #999;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .5s all;
+        min-height: 350px;
+        img{
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        // >div p:first-of-type{
+        //     text-align: center;
+        // }
+        p{
+            transition: .5s all;
+            margin-bottom: 5px;
+            line-height: 25px;
+            word-break: break-all;
+            position: relative;
+            &:first-of-type{
+                font-size: 16px;
+            }
+            &:last-of-type{
+                color: #999;
+            }
+            &::after,&::before{
+              transition: .3s all;
+              position: absolute;
+              content:'';
+              width: 0;
+              height: 1px;
+              background: @active;
+              bottom: -1px;
+            }
+            &::after{
+              left: 50%;
+            }
+            &::before{
+              right:50%;
+            }
+        }
+        &:hover{
+            border:1px solid @active;
+             p{
+                &:first-of-type{
+                    color: @active;
+                    &::after,&::before{
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

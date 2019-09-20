@@ -1,0 +1,85 @@
+@import './theme.less';
+
+.about-me-container{
+    padding:30px 5%;
+    .title{
+        margin-bottom: 15px;
+    }
+    strong{
+        color: #999;
+            letter-spacing: 1px;
+            display: block;
+        font-size: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid @split;
+    }
+    ul:not(.link-list){
+        padding: 15px 0;
+        font-size: 14px;
+        list-style-type: circle;
+        padding-left: 1em;
+        >li{
+            letter-spacing: .5px;
+            margin-bottom: 15px;
+            line-height: 30px;
+        }
+    }
+    ul.vlog-list{
+      list-style:none ;
+      li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+          font-size: 16px;
+          margin-top: 10px;
+        }
+      }
+      video{
+        width: 60%;
+        border-radius: 10px;
+      }
+    }
+    .link-list{
+        display: flex;
+        padding:1em 0;
+        >li{
+          cursor: pointer;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: @split;
+          transition:.5s all;
+          margin-right: 10px;
+          i{
+            color: #999;
+          }
+          img{
+              width: 20px;
+              height: 20px;
+          }
+          i.email{
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              background: url('/static/email.png') no-repeat;
+              background-size: contain;
+          }
+          &:hover{
+            border-radius: 5px;
+            background: @active;
+            i.email{
+                background: url('/static/email-active.png') no-repeat;
+                background-size: contain;
+            }
+            i{
+              color: @text;
+            }
+          }
+      
+        }
+      }
+}

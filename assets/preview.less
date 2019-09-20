@@ -1,0 +1,100 @@
+@import './theme.less';
+
+.preview{
+    overflow-y:auto;
+    font-size: 13px;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+    >ul{
+        padding: 0 1em;
+      
+    }
+    li{
+        line-height: 27px;
+    }
+    p{
+        line-height: 26px;
+    }
+    >pre{
+        background-color: #f8f8f8;
+        padding: 10px;
+        font-size: 14px;
+        overflow: visible;
+    }
+    h1,h2,h3,h4,h5,h6{
+        color: @active;
+        margin-bottom: 1em;
+        font-weight: bold;
+    }
+    blockquote>pre{
+        margin-left: 1em;
+    }
+    code{
+        font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+        background-color: #fff5f5;
+        font-size: .87em;
+        color: #ff502c;
+        padding:2px 5px;
+        margin:0 2px;
+        border-radius: 2px;
+
+    }
+    code[class^="language-"]{
+        font-size: .8em;
+        padding: .2em .4em;
+        word-break: break-word;
+        color: #4e5980;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+        display: inline-block;
+        width: 100%;
+        overflow: auto;
+    }
+    img{
+        max-width: 100%;
+        box-sizing: content-box;
+        display: block;
+        margin: 0 auto;
+    }
+    code[class^="language"]{
+        font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+        display: block;
+        color: #333;
+        padding: 1em;
+        font-size: .8em;
+        overflow-x:auto;
+        background: #f8f8f8;
+          &::-webkit-scrollbar {
+            width: .6rem;
+            height: .6rem;
+          }
+    
+          &::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            outline: none;
+          }
+    }
+    a{
+        color: skyblue;
+    }
+    blockquote{
+        margin: 1em 0;
+        border-left: 4px solid #a2abb8;
+        >p{
+            padding: .5em 1em;
+            margin-bottom: 0;
+            
+        }
+        >ul{
+            padding: 0 2em;
+            >li{
+                margin-bottom: 10px;
+            }
+        }
+        img{
+            box-sizing: content-box;
+            display: inline-block;
+            
+            margin:auto;
+        }
+    }
+}

@@ -1,0 +1,92 @@
+@import './theme.less';
+
+.category-container{
+
+    >h3{
+        text-align: center;
+        color: @text;
+        padding: 15px 0 10px 0;
+        font-weight: 550;
+        font-size: 25px;
+        letter-spacing: 1px;
+    }
+    >p{
+        border-bottom: 1px solid @split;
+        text-align: center;
+        padding-bottom:20px;
+        color: #999;
+    }
+    .category-list{
+        padding: 1em 1rem;
+        text-align: center;
+        font-size: 18px;
+
+        >li{
+            margin-bottom: 1em;
+            >img{
+                width: 18px;
+                height: 18px;
+                vertical-align: -10%;
+            }
+            .gray-color{
+                font-size: 15px;
+            }
+        }
+    }
+    .no-article{
+        margin:10px 0;
+        font-size: 12px;
+        color: #999;
+    }
+    .article-list{
+        padding: 1em 10%;
+        font-size: 14px;
+        >li{
+            position: relative;
+            margin-bottom: 2em;
+            padding-left: 1.5em;
+            line-height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            >span{
+                cursor: pointer;
+                word-break: break-all;
+                letter-spacing: .5px;
+                position: relative;
+                border-bottom: 2px solid #999;
+                display: inline-block;
+                &::after,&::before{
+                    transition: .3s all;
+                    position: absolute;
+                    content:'';
+                    width: 0;
+                    height: 2px;
+                    background: @active;
+                    bottom: -2px;
+                  }
+                &::after{
+                    left: 50%;
+                  }
+                  &::before{
+                    right:50%;
+                  }
+                  &:hover{
+                    &::after,&::before{
+                      width: 50%;
+                    }
+                  }
+            }
+            // &::after{
+            //     content:'';
+            //     position: absolute;
+            //     width: 8px;
+            //     height: 8px;
+            //     border-radius: 50%;
+            //     border:1px solid @text;
+            //     left: 0;
+            // }
+        }
+    }
+}
