@@ -9,7 +9,7 @@ import CommonFn from '@utils/common';
 // import Router from 'next/router';
 import '@assets/header.less'
 // CreateArticle
-const titles: string[] = ['Home', 'Category', 'Example'];
+const titles: string[] = ['Home', 'Categorys', 'Examples'];
 // 数组类型的泛型 - 定义this.state接口
 interface S {
   list: Array<number>,

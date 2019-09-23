@@ -18,8 +18,9 @@ module.exports = {
         env_production: {
           NODE_ENV: 'production',
           HOST_URL:`http://www.touchfish.cn`,
-          PORT:8080
+          PORT:80
         },
+        
         out_file: './logs/out.log', // 普通日志路径
         error_file: './logs/err.log', // 错误日志路径
         merge_logs: true,

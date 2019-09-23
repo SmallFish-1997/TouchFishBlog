@@ -27,7 +27,7 @@ interface IResponse{
 }
 
 export default class RequestUtil {
-  static Host = process.env.HOST_URL?process.env.HOST_URL:`http://localhost:8080`;
+  static Host = process.env.HOST_URL?process.env.HOST_URL:`http://localhost:9090`;
   static async sendPost({ url, body }: _Req): Promise<NormalRes> {
     return await this.send_Request({
       url,

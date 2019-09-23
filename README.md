@@ -1,4 +1,4 @@
-![](https://user-gold-cdn.xitu.io/2019/6/27/16b971908320d8a1?imageView2/1/w/1304/h/734/q/85/format/webp/interlace/1)
+![](./static/a42cda169cde37ef7a6c8e876cff5054.png)
 
 
 ## Directory

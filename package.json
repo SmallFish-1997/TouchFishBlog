@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build": "next build",
-    "prod": "pm2 start pm2.config.js --env production",
+    "prod": "pm2 startOrReload pm2.config.js --env production",
     "mongo": "mongod --dbpath E:\\fish_mongodb\\data\\db",
     "mongoc": "mongod --dbpath F:\\MongoDB\\data\\db",
     "mongoprod": "cd \/usr\/local\/mongodb\/ mongod --dbpath \/usr\/local\/mongodb\/data\/db"

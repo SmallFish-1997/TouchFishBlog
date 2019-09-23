@@ -1,4 +1,4 @@
-import ParticlesMap from './ParticlesMap'
+// import ParticlesMap from './ParticlesMap'
 import Header from '@components/header'
 import Footer from '@components/footer'
 // import ToTop from '@components/toTop'
@@ -17,7 +17,7 @@ const Layout = (ctx: any) => {
       <Header pathname={router.pathname}/>
       <ToastContainer position={toast.POSITION.TOP_CENTER} autoClose={3000} />
 
-      <ParticlesMap />
+      {/* <ParticlesMap /> */}
       <div className="component-container">
         {children}
       </div>
