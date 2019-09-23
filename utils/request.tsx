@@ -28,6 +28,7 @@ interface IResponse{
 
 export default class RequestUtil {
   static Host = process.env.HOST_URL?process.env.HOST_URL:`http://localhost:9090`;
+  // static Host = `http://www.touchfish.cn`;
   static async sendPost({ url, body }: _Req): Promise<NormalRes> {
     return await this.send_Request({
       url,
@@ -45,14 +46,13 @@ export default class RequestUtil {
   static send_Request({ url, method, body }: _Request): Promise<NormalRes> {
     return new Promise((resolve, reject) => {
       Axios({
-        url,
+        url:this.Host+url,
         data:body,
         method: method
       }).then(function (res: IResponse): void {
         resolve(res.data);
       }).catch(function (err: any): void {
         console.log(err,'err----');
-        
         reject(err);
       })
     })

@@ -6,11 +6,13 @@ import { Icon, Carousel, Button,Modal } from 'antd';
 import { NormalRes, IUserInfo } from '@public/Interfase';
 import { toast } from 'react-toastify';
 import CommonFn from '@utils/common';
+// import Loading from '@components/Loading';
 
 // PureComponent组件泛型默认<P,S>
 interface PropsAttr {
   // 文章列表
   ArticleList: NormalRes,
+  static_url:any
 }
 interface StateAttr {
   total: number,
@@ -39,11 +41,14 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
   constructor(props: PropsAttr) {
     super(props);
   }
+
   componentDidMount() {
-    this.setState({
-      userInfo: CommonFn.getLocalData('FishInfomation'),
-      h5_open: document.documentElement.clientWidth <= 750
-    });
+    if(process.browser){
+      this.setState({
+        userInfo: CommonFn.getLocalData('FishInfomation'),
+        h5_open: document.documentElement.clientWidth <= 750
+      });
+    }
   }
   // 监听props.ArticleList变化
   static getDerivedStateFromProps(nextProps:PropsAttr, prevState:StateAttr) {
@@ -122,7 +127,7 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
       return list.map((item, index) => {
         return (<ul key={index}>
           <li>
-            <img src="/static/avatar.png" alt="" />
+            <img src={this.props.static_url+"/public/avatar.png"} alt="" />
             <span>TouchFish</span>
             {this.renderEditButton(item._id)}
           </li>
@@ -134,11 +139,11 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
           <li className={this.state.h5_open ? 'wap-open' : ''}>
             <div>
               <span>
-                <img src="/static/date-icon.png" alt="" />
+                {/* <img src={this.props.static_url+"/public/date-icon.png"} alt="" /> */}
                 {item.CreateDate}
               </span>
               <span>
-                <img src="/static/category-icon.png" alt="" />
+                <img src={this.props.static_url+"/public/category-icon.png"} alt="" />
                 {this.renderCategorys(item.categorys)}
               </span>
             </div>
@@ -156,13 +161,13 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
     return (
       <div className="hobby">
         <p>
-          <img src="/static/swiper-img/b-icon.png" alt="" />
+          <img src={this.props.static_url+"/public/swiper-img/b-icon.png"} alt="" />
           &nbsp;Basketball
         </p>
-        <img src="/static/swiper-img/05.jpg" alt="" />
+        <img src={this.props.static_url+"/public/swiper-img/05.jpg"} alt="" />
         <p className="about-row">篮球是这个世界上最可靠的东西，不会抱怨、不会质疑，你扔下它，它会立马弹回来.</p>
         <p>
-          <img src="/static/swiper-img/b-icon.png" alt="" />
+          <img src={this.props.static_url+"/public/swiper-img/b-icon.png"} alt="" />
           &nbsp;Other
         </p>
 
@@ -170,7 +175,7 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
           {
             swiperImgs.map((item, index) => {
               return (<div key={index} className="swiper-container">
-                <img src={`/static/swiper-img/0${index + 1}.${item}`} alt="" />
+                <img src={`${this.props.static_url}/public/swiper-img/0${index + 1}.${item}`} alt="" />
               </div>)
             })
           }
@@ -198,7 +203,7 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
                             <li onClick={() => {
                                 window.open(`https://juejin.im/user/5b122516f265da6e0b6ff258`);
                             }}>
-                                <img src="/static/juejin.svg" alt=""/>
+                                <img src={this.props.static_url+"/public/juejin.svg"} alt=""/>
                             </li>
 
         </ul>
@@ -208,6 +213,7 @@ class Home extends PureComponent<PropsAttr, StateAttr> {
   }
   public render(): ReactNode {
     return (<section className="home-container public-container">
+      {/* <Loading visible={true}/> */}
       <div className={`article-list ${this.state.h5_open ? 'wap-open' : ''}`}>
         {this.renderArticleList()}
       </div>

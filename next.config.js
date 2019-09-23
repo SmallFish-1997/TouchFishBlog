@@ -7,6 +7,7 @@ const withCSS = require('@zeit/next-css');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 
+
 // const _Webpack = require('webpack');
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
@@ -47,7 +48,6 @@ module.exports = withTypescript(
       },
 
       webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-       
         config.resolve.alias = {
           ...config.resolve.alias,
           '@pages': path.join(__dirname, '.', 'pages'),
@@ -111,6 +111,7 @@ module.exports = withTypescript(
       },
       publicRuntimeConfig: { // Will be available on both server and client
         staticFolder: '/static',
+        // 静态资源CDN
         isDev: process.env.NODE_ENV !== 'production' // Pass through env variables
       },
       env: {

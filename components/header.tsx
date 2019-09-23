@@ -153,7 +153,6 @@ export default class Header extends PureComponent<P, S> {
   }
   public render(): ReactNode {
     let activeTab: string = titles.find(n => this.props.pathname.indexOf(n) > -1) || 'Home';
-    console.log(activeTab,'-activeTab');
     
     return (<section className="header-container">
       <h3>

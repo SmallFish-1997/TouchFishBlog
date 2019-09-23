@@ -18,19 +18,17 @@ class InTerViewSystem extends App {
     super(props);
 
   }
-  componentWillMount(){
-    // if(process.browser){
-      // let a = document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth;
-      // document.documentElement.style.fontSize = (a / 25) + "px";
-    // }
-  }
-  componentDidMount(){
-   
-  }
  
   render() {
     const { Component, pageProps } = this.props;
-    let pageTitle:string = "TouchFish Blog - 前端技术文章分享（前端=Nextjs+Typescript + 后端=Node+MongoDB）";
+    let pageTitle:string = "TouchFish Blog - 前端技术文章分享";
+    // if(process.browser){
+      // let static_url = `http://py9v3b52i.bkt.clouddn.com`;
+      // if(window.origin.includes('touchfish.cn')){
+       let static_url = `http://static.touchfish.cn`;
+      // }
+      pageProps.static_url = static_url;
+    // }
     if(pageProps.pageTitle) pageTitle = pageProps.pageTitle;
     return (
       <Fragment>
@@ -40,7 +38,7 @@ class InTerViewSystem extends App {
           <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
           <meta name="keywords" hid="keywords" content="TouchFish Blog、touchfish.cn、www.touchfish.cn、个人博客、SSR、Nextjs、Typescript、Nodejs、Mongodb、技术文章"   description="个人博客（Personal Blog） - 前端技术栈（Nextjs、Typescript）+ 后端（Nodejs、Mongodb） - 技术文章分享：Nextjs、Typescript、Nodejs、Mongodb、技术文章"/>
           <title>{pageTitle}</title>
-          <link rel='shortcut icon' href='/static/favicon.ico' type='image/ico' />
+          <link rel='shortcut icon' href='http://static.touchfish.cn/public/favicon.ico' type='image/ico' />
         </Head>
         <Container>
             <Layout {...this.props}>
