@@ -17,10 +17,10 @@ interface P {
 export default class Category extends PureComponent<P>{
     static async getInitialProps() {
 
-        const ArticleList: any = await RequestUtil.sendGet({
+        const ArticleList: any = await RequestUtil.sendPost({
             url: `/Category/ArticleList`
         })
-        // console.log(ArticleList,'-ArticleList');
+        console.log(ArticleList,'-ArticleList');
         
         return { ArticleList,pageTitle:'文章类目-TouchFish' };
     }

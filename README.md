@@ -38,15 +38,6 @@
 > The application is ready on http://localhost:8080
 
 
-
-## Server - Running Localhost Server
-
-```
- 1. cd ./server
- 2. yarn install
- 3. npm run service
-```
-
 ## Running Production
 
 > * `npm run prod`执行pm2.config.js文件，如果未安装pm2则需要全局安装：

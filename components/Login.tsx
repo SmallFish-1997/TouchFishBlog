@@ -14,6 +14,7 @@ const LoginModal:SFC<IProps> = (props)=>{
     <Modal
      title="Permission Check"
      visible={props.visible}
+     closable={false}
      footer={[
         <Button key="btn-01" onClick={props.onCancel}>
           Cancel
@@ -24,7 +25,7 @@ const LoginModal:SFC<IProps> = (props)=>{
         onClick={(e)=>props.comfirmSubmit(e,'signin')}>
           Sign In
         </Button>,
-        <Button key="btn-03" type="primary" onClick={(e)=>props.comfirmSubmit(e,'signup')}>
+        <Button key="btn-03" type="danger" onClick={(e)=>props.comfirmSubmit(e,'signup')}>
           Sign Up
         </Button>,
       ]}

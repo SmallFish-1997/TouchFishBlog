@@ -18,10 +18,14 @@ class InTerViewSystem extends App {
     super(props);
 
   }
-
+  componentWillMount(){
+    // if(process.browser){
+      // let a = document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth;
+      // document.documentElement.style.fontSize = (a / 25) + "px";
+    // }
+  }
   componentDidMount(){
-    let a = document.documentElement.clientWidth > 750 ? 750 : document.documentElement.clientWidth;
-    document.documentElement.style.fontSize = (a / 25) + "px";
+   
   }
  
   render() {

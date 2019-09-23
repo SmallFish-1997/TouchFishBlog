@@ -51,6 +51,8 @@ export default class RequestUtil {
       }).then(function (res: IResponse): void {
         resolve(res.data);
       }).catch(function (err: any): void {
+        console.log(err,'err----');
+        
         reject(err);
       })
     })

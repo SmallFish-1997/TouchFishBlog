@@ -42,10 +42,10 @@ export default class CreateArticle extends PureComponent<PropsAttr, StateAttr> {
                 body: { id }
             })
         }
-        const Category: any = await RequestUtil.sendGet({
+        const Category: any = await RequestUtil.sendPost({
             url: `/Category/List`
         })
-        const TokenRes: any = await RequestUtil.sendGet({
+        const TokenRes: any = await RequestUtil.sendPost({
             url: `/qiniu/getToken`
         })
 
@@ -68,7 +68,7 @@ export default class CreateArticle extends PureComponent<PropsAttr, StateAttr> {
         btnType:'publish',
         account:'',
     }
-    private qiniu_url: string = 'http://www.touchfish.cn.qiniudns.com'
+    private qiniu_url: string = 'http://static.touchfish.cn'
     /**
      * @name 七牛云上传回调
      * @param  isCover 是否上传封面图片
