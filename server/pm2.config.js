@@ -1,23 +1,22 @@
 module.exports = {
     apps: [
       {
-        name: 'TouchFishBolg',
-        script: './server.js',
+        name: 'TouchFishServer',
+        script: './service.js',
         cwd: './', // 当前工作路径
-        watch: [
-          '.next' // 监控变化的目录，一旦变化，自动重启
-        ],
+        // watch: [
+        //   '.next' // 监控变化的目录，一旦变化，自动重启
+        // ],
         ignore_watch: [
           // 从监控目录中排除
           'node_modules',
           'logs',
-          'static'
         ],
         instances: 2,  // 启动2个实例
         node_args: '--harmony',
         env_production: {
           NODE_ENV: 'production',
-          PORT:8080
+          PORT:9090
         },
         out_file: './logs/out.log', // 普通日志路径
         error_file: './logs/err.log', // 错误日志路径
